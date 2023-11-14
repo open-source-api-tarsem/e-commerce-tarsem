@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.0",
+    "nodemon": "^3.0.1",
+    "path": "^0.12.7",
+    "util": "^0.12.5"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "ecomm",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "author": "Tarsem",
+  "license": "ISC",
+  "description": ""
+}
