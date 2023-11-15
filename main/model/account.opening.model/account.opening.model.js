@@ -23,10 +23,36 @@ const signUpSchema = new mongoose.Schema({
         type : String
     }
     ,
+    tempRole : {
+        type : String,
+        default : "user",
+        enum : ["user", "admin", "vendor"]
+    }
+    ,
     role : {
         type : String,
         default : "user",
         enum : ["user", "admin", "vendor"]
+    }
+    ,
+    KYCStatus : {
+        type : Boolean,
+        default : false
+    }
+    ,
+    AadharCard : {
+        type : String,
+        trim : true
+    }
+    ,
+    panCard : {
+        type : String,
+        trim : true
+    }
+    ,
+    shopLogo : {
+        type : String,
+        trim : true
     }
 })
 
