@@ -54,6 +54,7 @@ const signUpSchema = new mongoose.Schema({
         type : String,
         trim : true
     }
+
 })
 
 const SignUp = mongoose.model("Signup", signUpSchema)
