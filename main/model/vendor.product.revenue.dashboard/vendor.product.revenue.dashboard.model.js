@@ -56,7 +56,6 @@ const productAdd = new mongoose.Schema({
             image1:{
                 type:String
             },
-
             image2:{
                 type:String
             },
@@ -75,11 +74,12 @@ const productAdd = new mongoose.Schema({
                 type:String,
             }
         }],
-        user:{
-            type:mongoose.Schema.ObjectId,
-            ref:"Signup",
-        },
+        
     }],
+    user:{
+        type:mongoose.Schema.ObjectId,
+        ref:"Signup",
+    },
     dailyRevenue:[{
         Monday:[{
             date:{
