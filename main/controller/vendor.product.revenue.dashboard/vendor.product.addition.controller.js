@@ -98,18 +98,50 @@ exports.uploadedImagesOfProductsProcessing = async(req, res, next)=>{
             console.log(el)
             const processingImages = snapnow.processImages(`./media/vendorProducts/${vendorShop._id}/${lastProductUploaded}/${el}`,
             `./media/vendorProducts/${vendorShop._id}/${lastProductUploaded}/processedMedia/${el}`
-            ,{scale : true, height : 200, width : 200, fit : "fill"}
-            ,{gray : true}
+            ,{scale : true, height : 300, width : 300, fit : "fill"}
+            ,{gray : false}
             ,{tint : false, R : 244, G : 206, B : 20}
             ,{rotate : false, angle : 135}
             ,{blur : false, level : 20}
-            ,{sharpen : false, level : 50}
+            ,{sharpen : true, level : 20}
             ,{flip : false}
             ,{flop : false}
             ,{text : false})
         }
-        
     })
     next()
     
+}
+
+
+exports.displayAllProductsToUsers = async(req, res, next)=>{
+    const vendorProducts = await vendorDashoard.find()
+    const allProducts = []
+    vendorProducts.forEach(el=>{
+        allProducts.push([el.product, el._id])
+    })
+    const allDistinguishProductArray = []
+    allProducts.forEach(el=>{
+        allDistinguishProductArray.push(...[...el[0]])
+    })
+    console.log(allDistinguishProductArray)
+    res.status(200).json({
+        status : 'sucess',
+        data : {
+            allDistinguishProductArray,
+            allProducts
+        }
+    }) 
+}
+
+const email = require('./../../utility/email.sending')
+
+exports.testmail = async(req, res)=>{
+    const sending = email.send()
+    res.status(200).json({
+        status : 'sucess',
+        data : {
+           message : "mail send"
+        }
+    }) 
 }

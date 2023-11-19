@@ -73,7 +73,7 @@ const productAdd = new mongoose.Schema({
             video1:{
                 type:String,
             }
-        }],
+        }]
         
     }],
     user:{
