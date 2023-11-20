@@ -54,6 +54,17 @@ const signUpSchema = new mongoose.Schema({
         type : String,
         trim : true
     }
+    ,
+    cartProducts : [{
+        product_id : {
+            type : mongoose.Schema.ObjectId,
+            ref : "vendorDashboard.products"
+        }
+        ,
+        quantity : {
+            type : Number
+        }
+    }]
 
 })
 
