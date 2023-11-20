@@ -10,7 +10,6 @@ router.route("/product-images-video-uploading").post(vendorProductRevenueDashboa
 router.route("/product-image-processing").get(vendorProductRevenueDashboard.uploadedImagesOfProductsProcessing)
 router.route("/all-vendor-products").get(vendorProductRevenueDashboard.displayAllProductsToUsers)
 router.route("/media-test").post(mediasingleUpload.mediaupload())
-router.route("/email-test").post(vendorProductRevenueDashboard.testmail)
 
 
 module.exports = router

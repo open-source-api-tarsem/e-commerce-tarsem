@@ -18,7 +18,7 @@ exports.vendorShopDetails = async(req, res, next)=>{
 
 
 exports.productsAddition = async(req, res, next)=>{
-    const {productTitle, productDescription, productInventory} = req.body;
+    const {productTitle, productDescription, productInventory, productCompany, colorOfproduct, discountValue, taxOverProduct, productMaterial, productWeight, numberOfpieces, HSN, productRating, returnDays, dimentionsOfproduct, countryOfOrigin} = req.body;
     const user = await tokenDecoder.decodeTokenForUser()
     const vendorShop = await vendorDashoard.findOne({user : user[0]._id})
     
@@ -26,7 +26,20 @@ exports.productsAddition = async(req, res, next)=>{
         {
             productTitle,
             productDescription,
-            productInventory   
+            productInventory,
+            productCompany,
+            colorOfproduct,
+            discountValue,
+            taxOverProduct,
+            productMaterial,
+            productWeight,
+            numberOfpieces,
+            HSN,
+            productRating,
+            returnDays,
+            dimentionsOfproduct,
+            countryOfOrigin,
+            productOwner: vendorShop._id
         }
     )
     vendorShop.save()
@@ -128,20 +141,9 @@ exports.displayAllProductsToUsers = async(req, res, next)=>{
     res.status(200).json({
         status : 'sucess',
         data : {
-            allDistinguishProductArray,
-            allProducts
+            allDistinguishProductArray
         }
     }) 
 }
 
-const email = require('./../../utility/email.sending')
 
-exports.testmail = async(req, res)=>{
-    const sending = email.send()
-    res.status(200).json({
-        status : 'sucess',
-        data : {
-           message : "mail send"
-        }
-    }) 
-}

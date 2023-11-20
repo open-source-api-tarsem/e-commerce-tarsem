@@ -52,6 +52,85 @@ const productAdd = new mongoose.Schema({
             type:Number,
             default:0
         },
+        productCompany:{
+            type : String
+        }
+        ,
+        colorOfproduct : {
+            type : String
+        }
+        ,
+        discountValue : {
+            type : Number,
+            default : 0
+        }
+        ,
+        taxOverProduct : {
+            type : Number,
+        }
+        ,
+        productMaterial: {
+            type : String
+        }
+        ,
+        productWeight : {
+            type : String
+        }
+        ,
+        numberOfpieces : {
+            type : Number
+        }
+        ,
+        HSN : {
+            type : String
+        }
+        ,
+        productRating : {
+            type : Number
+        }
+        ,
+        productReview : [{
+            rate : {
+                type : Number
+            }
+            ,
+            comment : {
+                type : String
+            }
+            ,
+            userWhoGIvedTheReview : {
+                type : mongoose.Schema.ObjectId,
+                ref : "SignUp"
+            }
+        }]
+        ,
+        returnDays : {
+            type : Number
+        }
+        ,
+        dimentionsOfproduct : [{
+            height : {
+                type : Number
+            }
+            ,
+            width : {
+                type : Number
+            }
+        }]
+        ,
+        countryOfOrigin : {
+            type : String
+        }
+        ,
+        specialFeatures : {
+            type : String
+        }
+        ,
+        productOwner : {
+            type : mongoose.Schema.ObjectId  ,
+            ref : "vendorDashoard"
+        }
+        ,
         productImages:[{
             image1:{
                 type:String
