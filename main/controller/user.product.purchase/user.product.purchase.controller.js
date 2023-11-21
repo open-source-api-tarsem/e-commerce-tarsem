@@ -21,22 +21,11 @@ exports.productsAdditionToCart = async(req, res, next)=>{
     user[0].cartProducts.forEach(el=>{
         allDistinguishProductArray.forEach(prod=>{
             if(String(el.product_id) == String(prod._id)){
-                if(selectedProducts.includes(prod)){
-                    // user[0].cartProducts.forEach(el=>{
-                    //     if(el.product_id==String(prod._id)){
-                    //         el.quantity = el.quantity + 1
-                    //     }
-                    // })
-                    console.log("already there")
-
-                }else{
-                    selectedProducts.push([prod, {quantity}])
-                }
+                selectedProducts.push([prod, {quantity}])
             }
         })
 
     })
-    console.log(selectedProducts)
 
     user[0].save()
     res.status(200).json({
