@@ -65,7 +65,34 @@ const signUpSchema = new mongoose.Schema({
             type : Number
         }
     }]
-
+    ,
+    usersBrowsedProducts : [{
+        productSearch : {
+            type : String
+        }
+        ,
+        anyCompany : {
+            type : String
+        }
+        ,
+        anySpecifications : {
+            type : String
+        }
+        
+        
+    }]
+    ,
+    products_Array_To_be_Displayed_On_LandingPage : [{
+        productToshow : {
+            type : Object
+        }
+    }]
+    ,
+    products_Array_To_be_Displayed_On_LandingPage_with_company_and_catagory : [{
+        productToshow : {
+            type : Object
+        }
+    }]
 })
 
 const SignUp = mongoose.model("Signup", signUpSchema)

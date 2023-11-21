@@ -56,6 +56,10 @@ const productAdd = new mongoose.Schema({
             type : String
         }
         ,
+        productCatagory : {
+            type : String
+        }
+        ,
         colorOfproduct : {
             type : String
         }

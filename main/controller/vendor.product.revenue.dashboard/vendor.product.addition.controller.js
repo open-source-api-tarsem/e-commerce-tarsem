@@ -18,7 +18,7 @@ exports.vendorShopDetails = async(req, res, next)=>{
 
 
 exports.productsAddition = async(req, res, next)=>{
-    const {productTitle, productDescription, productInventory, productCompany, colorOfproduct, discountValue, taxOverProduct, productMaterial, productWeight, numberOfpieces, HSN, productRating, returnDays, dimentionsOfproduct, countryOfOrigin} = req.body;
+    const {productTitle, productDescription, productInventory, productCompany, productCatagory,colorOfproduct, discountValue, taxOverProduct, productMaterial, productWeight, numberOfpieces, HSN, productRating, returnDays, dimentionsOfproduct, countryOfOrigin} = req.body;
     const user = await tokenDecoder.decodeTokenForUser()
     const vendorShop = await vendorDashoard.findOne({user : user[0]._id})
     
@@ -28,6 +28,7 @@ exports.productsAddition = async(req, res, next)=>{
             productDescription,
             productInventory,
             productCompany,
+            productCatagory,
             colorOfproduct,
             discountValue,
             taxOverProduct,
