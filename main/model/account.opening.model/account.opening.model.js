@@ -93,6 +93,111 @@ const signUpSchema = new mongoose.Schema({
             type : Object
         }
     }]
+    ,
+    orderespurchased : [{
+        product_id : {
+            type : mongoose.Schema.ObjectId,
+            ref : 'vendorDashboard'
+        }
+        ,
+        totalBill : {
+            type : String
+        }
+        ,
+        taxOnOrder : {
+            type : String
+        }
+        ,
+        addressTobeShipped : {
+            type : String
+        }
+        ,
+        orderStatus : {
+            type : String
+        }
+        ,
+        orderTrackingUpdate : {
+            type : Array
+        }
+        ,
+        quantity : {
+            type : Number
+        }
+        ,
+        paymentMode : {
+            type : String
+        }
+        ,
+        paymentStatus : {
+            type : String,
+            enum : ['sucess', 'pending', 'failed'],
+            default : 'sucess'
+        }
+        ,
+        refundStatus : {
+            type : String,
+            enum : ['approved', 'notTaken'],
+            default : "notTaken"
+        }
+        ,
+        vendor : {
+            type : mongoose.Schema.ObjectId,
+            ref : "vendorDashboard"
+        }
+    }]
+    ,
+    openBills : [{
+        invoiceNumber : {
+            type : String,
+            trim : true
+        }
+        ,
+        totalTaxApplied : {
+            type : Number
+        }
+        ,
+        totalBillAmount : {
+            type : Number
+        }
+        ,
+        DateOfBill : {
+            type : String,
+            default : `${new Date().toLocaleDateString()} / ${new Date().toLocaleTimeString()}`
+        }
+        ,
+        shippingAddress : {
+            type : String
+        }
+        ,
+        vendor_id : {
+            type : mongoose.Schema.ObjectId,
+            ref : 'vendorDashboard'
+        }
+        ,
+        vendorAddress : {
+            type : String
+        }
+        ,
+        GSTIN : {
+            type : String
+        }
+        ,
+        paymentMode : {
+            type : String
+        }
+        ,
+        paymentStatus : {
+            type : String,
+            enum : ['sucess', 'pending', 'failed'],
+            default : 'sucess'
+        }
+        ,
+        refundStatus : {
+            type : String,
+            enum : ['approved', 'notTaken'],
+            default : "notTaken"
+        }
+    }]
 })
 
 const SignUp = mongoose.model("Signup", signUpSchema)

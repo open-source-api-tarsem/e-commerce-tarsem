@@ -56,6 +56,10 @@ const productAdd = new mongoose.Schema({
             type : String
         }
         ,
+        priceForProduct : {
+            type : Number
+        }
+        ,
         productCatagory : {
             type : String
         }
@@ -112,6 +116,25 @@ const productAdd = new mongoose.Schema({
             type : Number
         }
         ,
+        productSold : [{
+            product_id : {
+                type : mongoose.Schema.ObjectId
+            }
+            ,
+            RevenueGenerated : {
+                type : Number
+            }
+            ,
+            taxCollected : {
+                type : Number
+            }
+            ,
+            DateOfInvoiceApproval : {
+                type : String,
+                default : `${new Date().toLocaleDateString()} / ${new Date().toLocaleTimeString()}`
+            }
+            
+        }],
         dimentionsOfproduct : [{
             height : {
                 type : Number
