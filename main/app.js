@@ -11,4 +11,7 @@ app.use("/api/v1/user/product", userProductPurchase)
 const vendorProductRevenueDashboard = require("./routes/vendor.product.revenue.dashboard.routes/vendor.product.revenue.dashboard.routes")
 app.use("/api/v1/vendor", vendorProductRevenueDashboard)
 
+const adminApprovingVendorBills = require("./routes/admin/admins.vendor.bill.approving.routes")
+app.use('/api/v1/admin', adminApprovingVendorBills)
+
 module.exports = app

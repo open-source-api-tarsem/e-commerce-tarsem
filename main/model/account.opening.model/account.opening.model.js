@@ -174,6 +174,10 @@ const signUpSchema = new mongoose.Schema({
             ref : 'vendorDashboard'
         }
         ,
+        product_id : {
+            type : Array,
+        }
+        ,
         vendorAddress : {
             type : String
         }

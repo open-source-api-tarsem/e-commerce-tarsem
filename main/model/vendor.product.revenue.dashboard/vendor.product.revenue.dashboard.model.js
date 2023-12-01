@@ -96,6 +96,22 @@ const productAdd = new mongoose.Schema({
         productRating : {
             type : Number
         }
+        
+        ,
+        returnDays : {
+            type : Number
+        }
+        ,
+       
+        dimentionsOfproduct : [{
+            height : {
+                type : Number
+            }
+            ,
+            width : {
+                type : Number
+            }
+        }]
         ,
         productReview : [{
             rate : {
@@ -109,39 +125,6 @@ const productAdd = new mongoose.Schema({
             userWhoGIvedTheReview : {
                 type : mongoose.Schema.ObjectId,
                 ref : "SignUp"
-            }
-        }]
-        ,
-        returnDays : {
-            type : Number
-        }
-        ,
-        productSold : [{
-            product_id : {
-                type : mongoose.Schema.ObjectId
-            }
-            ,
-            RevenueGenerated : {
-                type : Number
-            }
-            ,
-            taxCollected : {
-                type : Number
-            }
-            ,
-            DateOfInvoiceApproval : {
-                type : String,
-                default : `${new Date().toLocaleDateString()} / ${new Date().toLocaleTimeString()}`
-            }
-            
-        }],
-        dimentionsOfproduct : [{
-            height : {
-                type : Number
-            }
-            ,
-            width : {
-                type : Number
             }
         }]
         ,
@@ -185,7 +168,28 @@ const productAdd = new mongoose.Schema({
     user:{
         type:mongoose.Schema.ObjectId,
         ref:"Signup",
-    },
+    }
+    ,
+    productSold : [{
+        product_id : {
+            type : Array
+        }
+        ,
+        RevenueGenerated : {
+            type : Number
+        }
+        ,
+        taxCollected : {
+            type : Number
+        }
+        ,
+        DateOfInvoiceApproval : {
+            type : String,
+            default : `${new Date().toLocaleDateString()} / ${new Date().toLocaleTimeString()}`
+        }
+        
+    }]
+    ,
     dailyRevenue:[{
         Monday:[{
             date:{

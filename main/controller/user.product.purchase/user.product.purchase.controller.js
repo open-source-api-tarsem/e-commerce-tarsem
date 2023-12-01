@@ -157,7 +157,8 @@ exports.directPurchase = async(req, res, next)=>{
 
 exports.billingOfTheProducts = async(req, res, next)=>{
     const user = await tokenDecoder.decodeTokenForUser()
-    let invoiceNumber,totalTaxApplied,totalBillAmount,shippingAddress,vendorAddress,GSTIN,paymentMode,vendor_id;  
+    let invoiceNumber,totalTaxApplied,totalBillAmount,shippingAddress,vendorAddress,GSTIN,paymentMode,vendor_id;
+    let product_id = []  
     let billSum = 0
     let taxSum = 0
 
@@ -170,10 +171,12 @@ exports.billingOfTheProducts = async(req, res, next)=>{
         // const vendor = await vendorDashoard.find({_id : el.})
         paymentMode = 'UPI'
         vendor_id = el.vendor
+        product_id.push(el.product_id) 
+
     })
     
     
-    const act = {invoiceNumber, totalTaxApplied:Number(taxSum).toFixed(2), totalBillAmount: Number(billSum).toFixed(2),paymentMode, vendor_id}
+    const act = {invoiceNumber, totalTaxApplied:Number(taxSum).toFixed(2), totalBillAmount: Number(billSum).toFixed(2),paymentMode, vendor_id, product_id}
     user[0].openBills.push(act)
     user[0].save()
 
