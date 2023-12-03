@@ -30,6 +30,9 @@ exports.approvingBillsToVendors = async (req, res, next)=>{
     })
 
     res.status(200).json({
-        message : "hh"
+        status : 'sucess',
+        data : {
+            message : "All bills approved"
+        }
     })
 }
